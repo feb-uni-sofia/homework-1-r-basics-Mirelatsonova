@@ -12,15 +12,17 @@ avgMin <- mean (xmin)
 avgMax <- mean (xmax)
 
 #d)
-xmin [c(xmin < avgMin)]
+# c is not necessary here
+xmin [xmin < avgMin]
 
 #e) 
-xmax [c(xmax > avgMax)]
+xmax [xmax > avgMax]
 
 #f)
+## Nice
 date <- c('3Mon18', '4Tue18', '5Wed18', '6Thu18', '7Fri18', '8Sat18', '9Sun18')
 names(xmin) <- date
-names (xmax) <- date
+names(xmax) <- date
 
 #g)
 temperatures <- data.frame(
@@ -29,8 +31,8 @@ temperatures <- data.frame(
 )
 
 #h)
-temperatures <- within (temperatures,{
-  xminFahrenheit <- xmin*9/5 +32
+temperatures <- within (temperatures, {
+  xminFahrenheit <- xmin * 9 / 5 + 32
 })
 
 #i)
@@ -49,3 +51,9 @@ tempFahrenheitBeginning <- data.frame(
 tempFahrenheitBeginning1 <- data.frame(
   temperatures = temperaturesFahrenheit [-c(6,7),]
 )
+
+## Easier
+
+temperaturesFahrenheit[1:5, ]
+temperaturesFahrenheit[-(6:7), ]
+
